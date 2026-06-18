@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>International Dinu Lipatti Piano Competition 2026 – Application Form</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8960C;
+    --gold-light: #F5EFC0;
+    --gold-dark: #7A6208;
+    --ink: #1A1814;
+    --ink-mid: #4A4640;
+    --ink-muted: #7A7670;
+    --surface: #FDFCF8;
+    --surface-warm: #F7F4EC;
+    --border: #E2DDD0;
+    --border-strong: #C8C2B0;
+    --error: #B03030;
+    --error-light: #FDF0F0;
+    --success: #2A6E3A;
+    --success-light: #EEF7F0;
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--surface-warm);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .page-header .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .page-header h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .page-header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .page-header .subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .progress-bar {
+    background: rgba(255,255,255,0.1);
+    height: 2px;
+    margin-top: 2rem;
+    position: relative;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 20%;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .form-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    display: none;
+  }
+
+  .section.active { display: block; }
+
+  .section-header {
+    padding: 1.5rem 2rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .section-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+
+  .section-instruction {
+    background: var(--gold-light);
+    border-left: 3px solid var(--gold);
+    padding: 0.75rem 1rem;
+    margin: 1.25rem 2rem 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 13px;
+    color: var(--gold-dark);
+    line-height: 1.5;
+  }
+
+  .section-body {
+    padding: 1.5rem 2rem;
+  }
+
+  .field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .field-group.single { grid-template-columns: 1fr; }
+  .field-group.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .field:last-child { margin-bottom: 0; }
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .required-mark {
+    color: var(--gold-dark);
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .optional-mark {
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-weight: 400;
+    margin-left: 2px;
+  }
+
+  .field-hint {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="url"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    appearance: none;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(184,150,12,0.12);
+  }
+
+  input.error, textarea.error {
+    border-color: var(--error);
+    background: var(--error-light);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+  }
+
+  textarea.tall { min-height: 140px; }
+
+  .field-error {
+    font-size: 12px;
+    color: var(--error);
+    display: none;
+  }
+
+  .field-error.visible { display: block; }
+
+  .consent-block {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--surface-warm);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .consent-block:hover { border-color: var(--gold); }
+
+  .consent-block.checked {
+    border-color: var(--gold);
+    background: var(--gold-light);
+  }
+
+  .consent-block.error-consent { border-color: var(--error); background: var(--error-light); }
+
+  .consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .consent-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    background: #fff;
+  }
+
+  .consent-block.checked .consent-checkbox {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .consent-checkbox svg { display: none; }
+  .consent-block.checked .consent-checkbox svg { display: block; }
+
+  .consent-text {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  .consent-text strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 11px 28px;
+    border-radius: var(--radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: var(--gold-dark); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink-muted);
+    border: 1px solid var(--border-strong);
+  }
+
+  .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+  .btn-submit {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 13px 36px;
+    font-size: 15px;
+  }
+
+  .btn-submit:hover { background: var(--gold-dark); color: #fff; }
+
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .step-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    transition: background 0.2s;
+  }
+
+  .dot.active { background: var(--gold); }
+  .dot.done { background: var(--ink-mid); }
+
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .success-screen.visible { display: block; }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--success-light);
+    border: 2px solid var(--success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .success-icon svg { stroke: var(--success); }
+
+  .success-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .success-msg {
+    font-size: 14px;
+    color: var(--ink-muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .error-banner {
+    background: var(--error-light);
+    border: 1px solid var(--error);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-size: 13px;
+    color: var(--error);
+    margin-bottom: 1rem;
+    display: none;
+  }
+
+  .error-banner.visible { display: block; }
+
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 600px) {
+    .form-container { padding: 1rem 1rem 3rem; }
+    .section-body { padding: 1.25rem 1.25rem; }
+    .section-header { padding: 1.25rem 1.25rem 1rem; }
+    .section-instruction { margin: 1rem 1.25rem 0; }
+    .field-group { grid-template-columns: 1fr; }
+    .field-group.triple { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <p class="eyebrow">Oltenia Philharmonic Craiova · Romania</p>
+  <h1>International <em>Dinu Lipatti</em><br>Piano Competition 2026</h1>
+  <p class="subtitle">3rd Edition · Application Form · Please ensure all information matches your official passport or identification documents.</p>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <p class="progress-label" id="progressLabel">Step 1 of 5</p>
+</header>
+
+<main class="form-container">
+
+  <div class="error-banner" id="globalError">Please correct the highlighted fields before continuing.</div>
+
+  <!-- SECTION 1: Personal Information -->
+  <div class="section active" id="section-1">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div>
+        <div class="section-title">Personal Information</div>
+        <div class="section-desc">All fields marked with * are required</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field-group single">
+        <div class="field">
+          <label for="fullName">Full name (as shown in passport) <span class="required-mark">*</span></label>
+          <input type="text" id="fullName" placeholder="e.g. Anna Maria Kovács" required autocomplete="name">
+          <span class="field-error" id="err-fullName">Please enter your full name as it appears on your passport.</span>
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="field">
+          <label for="dob">Date of birth <span class="required-mark">*</span></label>
+          <input type="date" id="dob" required>
+          <span class="field-error" id="err-dob">Please enter your date of birth.</span>
+        </div>
+        <div class="field">
+          <label for="pob">Place of birth <span class="optional-mark">(optional)</span></label>
+          <input type="text" id="pob" placeholder="e.g. Budapest, Hungary">
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="field">
+          <label for="citizenship">Citizenship <span class="required-mark">*</span></label>
+          <input type="text" id="citizenship" placeholder="e.g. Hungarian" required>
+          <span class="field-error" id="err-citizenship">Please enter your citizenship.</span>
+        </div>
+        <div class="field">
+          <label for="country">Country of residence <span class="required-mark">*</span></label>
+          <input type="text" id="country" placeholder="e.g. Austria" required>
+          <span class="field-error" id="err-country">Please enter your country of residence.</span>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="address">Full address <span class="optional-mark">(optional)</span></label>
+          <input type="text" id="address" placeholder="Street, city, postal code, country">
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="field">
+          <label for="email">Email address <span class="required-mark">*</span></label>
+          <input type="email" id="email" placeholder="your@email.com" required autocomplete="email">
+          <span class="field-hint">All official correspondence will be sent to this address.</span>
+          <span class="field-error" id="err-email">Please enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label for="phone">International phone number <span class="required-mark">*</span></label>
+          <input type="tel" id="phone" placeholder="+1 202 555 0147" required>
+          <span class="field-hint">Include your country code.</span>
+          <span class="field-error" id="err-phone">Please enter your phone number with country code.</span>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="emergency">Emergency contact <span class="optional-mark">(optional)</span></label>
+          <input type="text" id="emergency" placeholder="Name and phone number of a person to contact in case of emergency">
+        </div>
+      </div>
+      <div class="nav-row">
+        <div class="step-dots">
+          <div class="dot active" id="dot-1"></div>
+          <div class="dot" id="dot-2"></div>
+          <div class="dot" id="dot-3"></div>
+          <div class="dot" id="dot-4"></div>
+          <div class="dot" id="dot-5"></div>
+        </div>
+        <button class="btn btn-primary" onclick="nextSection(1)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Musical Education -->
+  <div class="section" id="section-2">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div>
+        <div class="section-title">Musical Education</div>
+        <div class="section-desc">Your academic and artistic background</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field-group">
+        <div class="field">
+          <label for="institution">Current educational institution <span class="required-mark">*</span></label>
+          <input type="text" id="institution" placeholder="e.g. Royal Academy of Music, London" required>
+          <span class="field-error" id="err-institution">Please enter your current institution.</span>
+        </div>
+        <div class="field">
+          <label for="teacher">Main teacher / mentor <span class="required-mark">*</span></label>
+          <input type="text" id="teacher" placeholder="e.g. Prof. Maria Schmidt" required>
+          <span class="field-error" id="err-teacher">Please enter your main teacher's name.</span>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="degrees">Degrees and academic qualifications <span class="optional-mark">(optional)</span></label>
+          <textarea id="degrees" placeholder="e.g. Bachelor of Music, Royal Conservatoire of Brussels, 2022&#10;Master of Performance (in progress), Hochschule für Musik Wien"></textarea>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="awards">Previous awards and distinctions <span class="optional-mark">(optional)</span></label>
+          <textarea id="awards" placeholder="e.g. 1st Prize, Maria Canals International Piano Competition, Barcelona, 2023&#10;Special Prize, Chopin International Competition, Warsaw, 2021"></textarea>
+        </div>
+      </div>
+      <div class="field-group">
+        <div class="field">
+          <label for="bio">Artistic biography link <span class="optional-mark">(optional)</span></label>
+          <input type="url" id="bio" placeholder="https://yourwebsite.com/biography">
+          <span class="field-hint">Link to your online biography or personal website.</span>
+        </div>
+        <div class="field">
+          <label for="photo">Professional photo link <span class="optional-mark">(optional)</span></label>
+          <input type="url" id="photo" placeholder="https://drive.google.com/...">
+          <span class="field-hint">Min. 300 dpi. For press and promotional use.</span>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-secondary" onclick="prevSection(2)">← Back</button>
+        <div class="step-dots">
+          <div class="dot done" id="dot2-1"></div>
+          <div class="dot active" id="dot2-2"></div>
+          <div class="dot" id="dot2-3"></div>
+          <div class="dot" id="dot2-4"></div>
+          <div class="dot" id="dot2-5"></div>
+        </div>
+        <button class="btn btn-primary" onclick="nextSection(2)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Competition Repertoire -->
+  <div class="section" id="section-3">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div>
+        <div class="section-title">Competition Repertoire</div>
+        <div class="section-desc">Your programme for each round</div>
+      </div>
+    </div>
+    <div class="section-instruction">
+      Please provide complete repertoire information including composer, title, movement(s) if applicable, and approximate duration. Example: <em>F. Chopin — Ballade No. 1 in G minor, Op. 23 — approx. 9 min</em>
+    </div>
+    <div class="section-body">
+      <div class="field-group single">
+        <div class="field">
+          <label for="repOnline">Online round repertoire <span class="required-mark">*</span></label>
+          <textarea class="tall" id="repOnline" placeholder="List all pieces for the online pre-selection round." required></textarea>
+          <span class="field-error" id="err-repOnline">Please enter your repertoire for the online round.</span>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="repTour1">First round repertoire <span class="required-mark">*</span></label>
+          <textarea class="tall" id="repTour1" placeholder="List all pieces for the first round." required></textarea>
+          <span class="field-error" id="err-repTour1">Please enter your first round repertoire.</span>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="repSemi">Semi-final repertoire <span class="optional-mark">(optional)</span></label>
+          <textarea id="repSemi" placeholder="If already decided. May be updated later with organizers' approval."></textarea>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="repFinal">Final round repertoire <span class="optional-mark">(optional)</span></label>
+          <textarea id="repFinal" placeholder="Concert with orchestra. If already decided. May be updated later with organizers' approval."></textarea>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-secondary" onclick="prevSection(3)">← Back</button>
+        <div class="step-dots">
+          <div class="dot done"></div>
+          <div class="dot done"></div>
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <button class="btn btn-primary" onclick="nextSection(3)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Documents & Media -->
+  <div class="section" id="section-4">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div>
+        <div class="section-title">Documents &amp; Media</div>
+        <div class="section-desc">Passport details and required video submission</div>
+      </div>
+    </div>
+    <div class="section-instruction">
+      Please provide links to files hosted on Google Drive, Dropbox, OneDrive, WeTransfer, YouTube (unlisted), Vimeo, or similar services. Do not attach files directly.
+    </div>
+    <div class="section-body">
+      <div class="field-group">
+        <div class="field">
+          <label for="passport">Passport number <span class="required-mark">*</span></label>
+          <input type="text" id="passport" placeholder="e.g. AB1234567" required>
+          <span class="field-hint">Required for accreditation and accommodation.</span>
+          <span class="field-error" id="err-passport">Please enter your passport number.</span>
+        </div>
+        <div class="field">
+          <label for="videoLink">Online round video link <span class="optional-mark">(optional)</span></label>
+          <input type="url" id="videoLink" placeholder="https://youtu.be/...">
+          <span class="field-hint">Recent recording, no edits. YouTube unlisted or Vimeo.</span>
+        </div>
+      </div>
+      <div class="field-group single">
+        <div class="field">
+          <label for="travel">Travel information <span class="optional-mark">(optional)</span></label>
+          <textarea id="travel" placeholder="Arrival date, departure date, airport, flight number. You may complete this after receiving your acceptance notification."></textarea>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-secondary" onclick="prevSection(4)">← Back</button>
+        <div class="step-dots">
+          <div class="dot done"></div>
+          <div class="dot done"></div>
+          <div class="dot done"></div>
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+        <button class="btn btn-primary" onclick="nextSection(4)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Legal Consents -->
+  <div class="section" id="section-5">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div>
+        <div class="section-title">Legal Consents</div>
+        <div class="section-desc">All three consents are required to complete your application</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="consent-block" id="consent-gdpr" onclick="toggleConsent('gdpr')">
+        <label class="consent-label">
+          <div class="consent-checkbox">
+            <svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4.5 4,7.5 10,1"/></svg>
+          </div>
+          <div class="consent-text">
+            <strong>GDPR consent *</strong>
+            I consent to the processing of my personal data by Oltenia Philharmonic Craiova for the purpose of organizing and administering the International Dinu Lipatti Piano Competition 2026, in accordance with GDPR regulations.
+          </div>
+        </label>
+      </div>
+      <span class="field-error" id="err-gdpr">This consent is required to submit your application.</span>
+
+      <div class="consent-block" id="consent-photo" onclick="toggleConsent('photo')" style="margin-top:0.75rem">
+        <label class="consent-label">
+          <div class="consent-checkbox">
+            <svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4.5 4,7.5 10,1"/></svg>
+          </div>
+          <div class="consent-text">
+            <strong>Photo and video consent *</strong>
+            I authorize the organizers to photograph, record, livestream, publish, and use my image and performance for competition, educational, promotional, documentary, and media purposes.
+          </div>
+        </label>
+      </div>
+      <span class="field-error" id="err-photo">This consent is required to submit your application.</span>
+
+      <div class="consent-block" id="consent-rules" onclick="toggleConsent('rules')" style="margin-top:0.75rem">
+        <label class="consent-label">
+          <div class="consent-checkbox">
+            <svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4.5 4,7.5 10,1"/></svg>
+          </div>
+          <div class="consent-text">
+            <strong>Competition regulations acceptance *</strong>
+            I confirm that I have read, understood, and fully accept the Competition Regulations, eligibility criteria, jury decisions, and participation conditions.
+          </div>
+        </label>
+      </div>
+      <span class="field-error" id="err-rules">This consent is required to submit your application.</span>
+
+      <div class="nav-row" style="margin-top:2rem">
+        <button class="btn btn-secondary" onclick="prevSection(5)">← Back</button>
+        <div class="step-dots">
+          <div class="dot done"></div>
+          <div class="dot done"></div>
+          <div class="dot done"></div>
+          <div class="dot done"></div>
+          <div class="dot active"></div>
+        </div>
+        <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">Submit Application</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success screen -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 class="success-title">Application submitted</h2>
+    <p class="success-msg">Thank you for your application. Your submission has been successfully received and recorded. The organizing committee will review your application and contact you by email. If you do not receive a confirmation within a reasonable period, please check your spam folder or contact the organizers.</p>
+  </div>
+
+</main>
+
+<script>
+const AIRTABLE_TOKEN = 'patAsyIylGodv5zXs.6a8a16134dc46ff28d4015a4beb95cc189d4c15f01d88a61d40d47874266474d';
+const AIRTABLE_BASE = 'app77vokYHVtv9Que';
+const AIRTABLE_TABLE = 'tblhS2JpQNPaeIvKQ';
+
+const consents = { gdpr: false, photo: false, rules: false };
+
+function toggleConsent(key) {
+  consents[key] = !consents[key];
+  const block = document.getElementById('consent-' + key);
+  block.classList.toggle('checked', consents[key]);
+  block.classList.remove('error-consent');
+  document.getElementById('err-' + key).classList.remove('visible');
+}
+
+function showSection(n) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const sec = document.getElementById('section-' + n);
+  if (sec) sec.classList.add('active');
+  updateProgress(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(n) {
+  const pct = (n / 5) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + n + ' of 5';
+}
+
+function validateSection(n) {
+  let valid = true;
+  document.getElementById('globalError').classList.remove('visible');
+
+  const rules = {
+    1: [
+      { id: 'fullName', check: v => v.trim().length > 1 },
+      { id: 'dob', check: v => v.length > 0 },
+      { id: 'citizenship', check: v => v.trim().length > 1 },
+      { id: 'country', check: v => v.trim().length > 1 },
+      { id: 'email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'phone', check: v => v.trim().length > 5 },
+    ],
+    2: [
+      { id: 'institution', check: v => v.trim().length > 1 },
+      { id: 'teacher', check: v => v.trim().length > 1 },
+    ],
+    3: [
+      { id: 'repOnline', check: v => v.trim().length > 5 },
+      { id: 'repTour1', check: v => v.trim().length > 5 },
+    ],
+    4: [
+      { id: 'passport', check: v => v.trim().length > 3 },
+    ],
+  };
+
+  const sectionRules = rules[n];
+  if (sectionRules) {
+    sectionRules.forEach(rule => {
+      const el = document.getElementById(rule.id);
+      const err = document.getElementById('err-' + rule.id);
+      const ok = rule.check(el.value);
+      el.classList.toggle('error', !ok);
+      if (err) err.classList.toggle('visible', !ok);
+      if (!ok) valid = false;
+    });
+  }
+
+  if (!valid) document.getElementById('globalError').classList.add('visible');
+  return valid;
+}
+
+function nextSection(current) {
+  if (!validateSection(current)) return;
+  showSection(current + 1);
+}
+
+function prevSection(current) {
+  showSection(current - 1);
+}
+
+function validateConsents() {
+  let valid = true;
+  ['gdpr', 'photo', 'rules'].forEach(key => {
+    if (!consents[key]) {
+      document.getElementById('consent-' + key).classList.add('error-consent');
+      document.getElementById('err-' + key).classList.add('visible');
+      valid = false;
+    }
+  });
+  return valid;
+}
+
+async function submitForm() {
+  if (!validateSection(5)) return;
+  if (!validateConsents()) {
+    document.getElementById('globalError').classList.add('visible');
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Submitting...';
+
+  const fields = {
+    'Nume Complet (conform pașaport)': document.getElementById('fullName').value.trim(),
+    'Țara': document.getElementById('country').value.trim(),
+    'Email': document.getElementById('email').value.trim(),
+    'Telefon Intl.': document.getElementById('phone').value.trim(),
+    'Pașaport Ref.': document.getElementById('passport').value.trim(),
+    'Biografie (link/text)': document.getElementById('bio').value.trim() || '',
+    'Foto': document.getElementById('photo').value.trim() || '',
+    'Repertoriu Online Round': document.getElementById('repOnline').value.trim(),
+    'Repertoriu Tur I': document.getElementById('repTour1').value.trim(),
+    'Repertoriu Semifinală': document.getElementById('repSemi').value.trim() || '',
+    'Repertoriu Finală': document.getElementById('repFinal').value.trim() || '',
+    'Contact Urgență': document.getElementById('emergency').value.trim() || '',
+    'Observații': [
+      document.getElementById('pob').value.trim() ? 'Place of birth: ' + document.getElementById('pob').value.trim() : '',
+      document.getElementById('address').value.trim() ? 'Address: ' + document.getElementById('address').value.trim() : '',
+      document.getElementById('degrees').value.trim() ? 'Degrees: ' + document.getElementById('degrees').value.trim() : '',
+      document.getElementById('awards').value.trim() ? 'Awards: ' + document.getElementById('awards').value.trim() : '',
+      document.getElementById('institution').value.trim() ? 'Institution: ' + document.getElementById('institution').value.trim() : '',
+      document.getElementById('teacher').value.trim() ? 'Teacher: ' + document.getElementById('teacher').value.trim() : '',
+      document.getElementById('travel').value.trim() ? 'Travel: ' + document.getElementById('travel').value.trim() : '',
+      document.getElementById('videoLink').value.trim() ? 'Video: ' + document.getElementById('videoLink').value.trim() : '',
+      'Citizenship: ' + document.getElementById('citizenship').value.trim(),
+      document.getElementById('dob').value ? 'DOB: ' + document.getElementById('dob').value : '',
+      'GDPR: Yes | Photo: Yes | Regulations: Yes'
+    ].filter(Boolean).join('\n'),
+  };
+
+  Object.keys(fields).forEach(k => { if (!fields[k]) delete fields[k]; });
+
+  try {
+    const res = await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE}/${AIRTABLE_TABLE}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + AIRTABLE_TOKEN,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ fields })
+    });
+
+    if (res.ok) {
+      document.getElementById('section-5').classList.remove('active');
+      document.getElementById('successScreen').classList.add('visible');
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressLabel').textContent = 'Application complete';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const data = await res.json();
+      btn.disabled = false;
+      btn.innerHTML = 'Submit Application';
+      document.getElementById('globalError').textContent = 'Submission error. Please try again or contact the organizers.';
+      document.getElementById('globalError').classList.add('visible');
+    }
+  } catch (e) {
+    btn.disabled = false;
+    btn.innerHTML = 'Submit Application';
+    document.getElementById('globalError').textContent = 'Network error. Please check your connection and try again.';
+    document.getElementById('globalError').classList.add('visible');
+  }
+}
+</script>
+</body>
+</html>
