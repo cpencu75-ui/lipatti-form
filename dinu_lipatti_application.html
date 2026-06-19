@@ -797,9 +797,9 @@
 </main>
 
 <script>
-const AIRTABLE_TOKEN = 'patxZ0gtNQuVlzpX0.a48a0a7263877a9b2afdd99b0ef2a428a46d0577dec081c4ad160a6905be80d9';
-const AIRTABLE_BASE = 'app77vokYHVtv9Que';
-const AIRTABLE_TABLE = 'tblhS2JpQNPaeIvKQ';
+
+
+
 
 const consents = { gdpr: false, photo: false, rules: false };
 
@@ -930,13 +930,10 @@ async function submitForm() {
   Object.keys(fields).forEach(k => { if (!fields[k]) delete fields[k]; });
 
   try {
-    const res = await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE}/${AIRTABLE_TABLE}`, {
+    const res = await fetch('https://hooks.zapier.com/hooks/catch/27693522/43jo6pz/', {
       method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + AIRTABLE_TOKEN,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ fields })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(fields)
     });
 
     if (res.ok) {
